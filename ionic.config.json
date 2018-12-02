@@ -1,0 +1,7 @@
+{
+  "name": "DAM20182-IBARRA-U2-T08",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

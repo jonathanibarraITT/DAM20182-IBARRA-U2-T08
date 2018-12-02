@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Registros guardados
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item style="font-size:90%" ion-item *ngFor="let persona of personas">
+    <ion-card>
+      <ion-card-content>
+        <ion-title>RFC: {{persona.rfc}}</ion-title>
+      </ion-card-content>
+      <ion-card-header>
+        <ion-title>Nombre: {{persona.name}}</ion-title>
+      </ion-card-header>
+      <ion-card-header>
+        <ion-title>Calle: {{persona.calle}}</ion-title>
+      </ion-card-header>
+      <ion-card-header>
+        <ion-title>Numero: {{persona.callenumero}}</ion-title>
+      </ion-card-header>
+      <ion-card-header>
+        <ion-title>Telefono: {{persona.telefono}}</ion-title>
+      </ion-card-header>
+      <ion-card-header>
+          <ion-title>Correo: {{persona.email}}</ion-title>
+        </ion-card-header>
+        <ion-card-header>
+            <ion-title>Activo: {{persona.activo}}</ion-title>
+          </ion-card-header>
+    </ion-card>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nueva Persona</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form class="form" [formGroup]="validations_form"  (ngSubmit)="agregarPersona(validations_form.value)">
+    <ion-item>
+      <ion-label floating color="primary">RFC: </ion-label>
+      <ion-input   type="text" formControlName="rfc"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.rfc">
+        <div class="error-message" *ngIf="validations_form.get('rfc').hasError(validation.type) && (validations_form.get('rfc').dirty || validations_form.get('rfc').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Nombre:</ion-label>
+      <ion-input type="text" formControlName="name" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="error-message" *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Calle: </ion-label>
+      <ion-input type="text" formControlName="calle" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.calle">
+        <div class="error-message" *ngIf="validations_form.get('calle').hasError(validation.type) && (validations_form.get('calle').dirty || validations_form.get('calle').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Numero direccion: </ion-label>
+      <ion-input type="number" formControlName="callenumero" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.callenumero">
+        <div class="error-message" *ngIf="validations_form.get('callenumero').hasError(validation.type) && (validations_form.get('callenumero').dirty || validations_form.get('callenumero').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Telefono:</ion-label>
+      <ion-input type="number" formControlName="telefono" class="form-control" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.telefono">
+        <div class="error-message" *ngIf="validations_form.get('telefono').hasError(validation.type) && (validations_form.get('telefono').dirty || validations_form.get('telefono').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Correo electronico:</ion-label>
+      <ion-input type="email" formControlName="emailc" class="form-control" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.emailc">
+        <div class="error-message" *ngIf="validations_form.get('emailc').hasError(validation.type) && (validations_form.get('emailc').dirty || validations_form.get('emailc').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>Activo</ion-label>
+      <ion-checkbox checked="true" formControlName="activo"></ion-checkbox>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.activo">
+        <div class="error-message" *ngIf="validations_form.get('activo').hasError(validation.type) && (validations_form.get('activo').dirty || validations_form.get('activo').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <button ion-button type="submit" [disabled]="!validations_form.valid" block (click)="showAlert()">Guardar</button>
+  </form>
+</ion-content>
